@@ -1,0 +1,96 @@
+<template>
+
+    <!-- for Each-->
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+          <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+              <span class="slds-icon_container slds-icon-standard-account" title="account">
+                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                </svg>
+                <span class="slds-assistive-text">account</span>
+              </span>
+            </div>
+            <div class="slds-media__body">
+                <h2 class="slds-card__header-title">
+                  <a href="javascript:void(0);" class="slds-card__header-link slds-truncate">
+                    <span>For:Each Demo</span>
+                  </a>
+                </h2>
+              </div>
+              </header>
+              </div>
+    </article>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div title="Index">Index</div>
+                </th>
+                <th class="" scope="col">
+                    <div title="Id">Id</div>
+                </th>
+                <th class="" scope="col">
+                    <div title="Name">Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div title="Email">Email</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template if:true={contacts.length} for:each={contacts} for:item='con' for:index='index'>
+                <tr key={con.Id} class="slds-hint-parent" >
+                    <td data-label="Index">
+                        <div class="slds-truncate" title="Index">{index}</div>
+                    </td>
+                    <td data-label="Id">
+                        <div class="slds-truncate" title="Id">{con.Id}</div>
+                    </td>
+                    <td data-label="Name">
+                        <div class="slds-truncate" title="Name">{con.Name}</div>
+                    </td>
+                    <td data-label="Email">
+                        <div class="slds-truncate" title="Email">{con.Email}</div>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+
+    <!--Iterative-->
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+          <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+              <span class="slds-icon_container slds-icon-standard-account" title="account">
+                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                </svg>
+                <span class="slds-assistive-text">account</span>
+              </span>
+            </div>
+            <div class="slds-media__body">
+                <h2 class="slds-card__header-title">
+                  <a href="javascript:void(0);" class="slds-card__header-link slds-truncate">
+                    <span>Iterator Demo</span>
+                  </a>
+                </h2>
+              </div>
+              </header>
+              </div>
+    </article>
+    <article class="slds-card">
+        <template iterator:contact={contacts}>
+            <template if:true={contact.first}>
+        _____________________________________________________________________________________
+            </template>
+        <div class='slds-box' key={contact.value.Id}> {contact.value.Name} - {contact.value.Email}</div> 
+        <template if:true={contact.last}>
+        _____________________________________________________________________________________ 
+        </template>
+        </template>
+    </article>
+</template>
+
